@@ -1,10 +1,10 @@
-let money = 400,
-  income  = 200,
+let money = 600,
+  income  = 'Продажа пирожков',
   addExpenses = 'Кафе, Такси, Телефон, Интернет', // доп. расходы
   deposit = true, 
   mission = 2000,
   period  = 12,  // месяцев
-  budgetDay = (money + income) / 30; // Дневной бюджет
+  budgetDay = money / 30; // Дневной бюджет
 
 // Вывод типа данных 
 console.log(typeof(money));
