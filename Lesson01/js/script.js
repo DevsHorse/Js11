@@ -36,7 +36,21 @@ function showTypeOf(variable) {
 };
 
 function getStatusIncome() {
-  return income;
+
+ let messege;
+
+  if (budgetDay >= 1200) {
+    messege = 'У вас высокий уровень дохода';
+  } else if ( budgetDay >= 600 && budgetDay < 1200 ) {
+    messege = 'У вас средний уровень дохода';
+  } else if ( budgetDay < 600 && budgetDay > 0 ) {
+    messege = 'К сожалению у вас уровень дохода ниже среднего';
+  } else if ( budgetDay === 0 ) {
+    messege = 'У вас отсутствует доход или слишком много расходов';
+  } else {
+    messege = 'Что то пошло не так';
+  }
+return messege;
 };
 
 console.log('Тип money:', showTypeOf(money)); // Вывод типа данных 
@@ -46,20 +60,7 @@ console.log('getExpensesMonth: ', getExpensesMonth()); // Расходы за м
 console.log('Массив addExpenses: ', addExpenses.toLowerCase().split(', ')); // Вывод возможных расходов
 console.log('getTargetMonth: ', Math.floor(getTargetMonth())); //Срок достижения цели
 console.log('Бюджет на день: ', Math.floor(budgetDay)); // Вывод дневного бюджета 
-console.log('getStatusIncome: ', getStatusIncome()); // Статус income, не особо понятно что там должно быть =)
-
-//Расчет уровня дохода
-if (budgetDay >= 1200) {
-  console.log('У вас высокий уровень дохода');
-} else if ( budgetDay >= 600 && budgetDay < 1200 ) {
-  console.log('У вас средний уровень дохода');
-} else if ( budgetDay < 600 && budgetDay > 0 ) {
-  console.log('К сожалению у вас уровень дохода ниже среднего');
-} else if ( budgetDay === 0 ) {
-  console.log('У вас отсутствует доход или слишком много расходов');
-} else {
-  console.log('Что то пошло не так');
-}
+console.log('getStatusIncome: ', getStatusIncome()); // Статус дохода 
 
 
 
