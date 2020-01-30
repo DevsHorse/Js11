@@ -2,7 +2,7 @@
 
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
-};
+}
 
 let money,
     income  = 'Фриланс',
@@ -17,13 +17,13 @@ function start() {
     }
     while (!isNumber(money));
     money = +money;
-};
+}
 
 start();
 // Показать тип переменной 
 function showTypeOf(any) {
   return typeof(any);
-};
+}
 
 console.log('Тип money:', showTypeOf(money));
 console.log('Тип income:', showTypeOf(income));
@@ -37,7 +37,11 @@ function getExpensesMonth() {
     let sum = 0,
         amount;
     for (let i = 0; i < 2; i++) {
+      do {
       expenses[i] = prompt('Введите обязательную статью расходов?', 'расход');
+      } 
+      while (expenses[i] === null || expenses[i].trim() === '' || isNumber(expenses[i]));
+
       do {
         amount = prompt('Во сколько это обойдется?', 1000);
       } 
@@ -46,14 +50,14 @@ function getExpensesMonth() {
     }
     console.log(expenses);
     return sum;
-};
+}
 
 let expensesAmount = getExpensesMonth();
 
 // Бюджет на месяц
 function getAccumulatedMonth() {
   return money - expensesAmount;
-};
+}
 
 let accumulatedMonth = getAccumulatedMonth(), // месячный бюджет 
   budgetDay = accumulatedMonth / 30; // Дневной бюджет
@@ -69,7 +73,7 @@ function getTargetMonth() {
   } else {
     return(`Цель будет достигнута за ${target} месяца`);
   }
-};
+}
 
 console.log('getTargetMonth: ', getTargetMonth()); //Срок достижения цели
 
@@ -88,7 +92,7 @@ function getStatusIncome() {
     messege = 'Что то пошло не так';
   }
  return messege;
-};
+}
 
 console.log('getStatusIncome: ', getStatusIncome()); // Статус дохода 
 
