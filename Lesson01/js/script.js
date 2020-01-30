@@ -50,6 +50,7 @@ function getStatusIncome() {
   } else {
     messege = 'Что то пошло не так';
   }
+
 return messege;
 };
 
@@ -58,7 +59,7 @@ console.log('Тип income:', showTypeOf(income));
 console.log('Тип deposit:', showTypeOf(deposit));
 console.log('getExpensesMonth: ', getExpensesMonth()); // Расходы за месяц
 console.log('Массив addExpenses: ', addExpenses.toLowerCase().split(', ')); // Вывод возможных расходов
-console.log('getTargetMonth: ', Math.floor(getTargetMonth())); //Срок достижения цели
+console.log('getTargetMonth: ', Math.ceil(getTargetMonth())); //Срок достижения цели
 console.log('Бюджет на день: ', Math.floor(budgetDay)); // Вывод дневного бюджета 
 console.log('getStatusIncome: ', getStatusIncome()); // Статус дохода 
 
