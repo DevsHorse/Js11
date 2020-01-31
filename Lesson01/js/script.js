@@ -76,13 +76,13 @@ let appData = {
             messege = 'У вас высокий уровень дохода';
           } else if ( appData.budgetDay >= 600 ) {
             messege = 'У вас средний уровень дохода';
-          } else if ( appData.budgetDay < 600 ) {
-            messege = 'К сожалению у вас уровень дохода ниже среднего';
           } else if ( appData.budgetDay === 0 ) {
             messege = 'У вас отсутствует доход или слишком много расходов';
-          } else {
+          } else if (appData.budgetDay < 0 ){
             messege = 'Что то пошло не так';
-          }
+          } else {
+            messege = 'К сожалению у вас уровень дохода ниже среднего';
+          } 
        return messege;
     }
 };
