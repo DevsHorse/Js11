@@ -54,11 +54,10 @@ let appData = {
           sum += appData.expenses[key];
         }
         appData.expensesMonth = sum;
-        return appData.expensesMonth;
     },
 
     getBudget: function() {
-      appData.budgetMonth = appData.budget - appData.getExpensesMonth();
+      appData.budgetMonth = appData.budget - appData.expensesMonth;
       appData.budgetDay = appData.budgetMonth / 30;
     },
 
@@ -73,11 +72,11 @@ let appData = {
 
     getStatusIncome: function() {
       let messege;
-          if (appData.budgetDay >= 1200) {
+          if ( appData.budgetDay >= 1200 ) {
             messege = 'У вас высокий уровень дохода';
-          } else if ( appData.budgetDay >= 600 && appData.budgetDay < 1200 ) {
+          } else if ( appData.budgetDay >= 600 ) {
             messege = 'У вас средний уровень дохода';
-          } else if ( appData.budgetDay < 600 && appData.budgetDay > 0 ) {
+          } else if ( appData.budgetDay < 600 ) {
             messege = 'К сожалению у вас уровень дохода ниже среднего';
           } else if ( appData.budgetDay === 0 ) {
             messege = 'У вас отсутствует доход или слишком много расходов';
@@ -94,7 +93,7 @@ appData.getBudget();
 appData.getTargetMonth();
 appData.getStatusIncome();
 
-console.log('Расходы на месяц: ', appData.getExpensesMonth()); // Расходы за месяц
+console.log('Расходы на месяц: ', appData.expensesMonth); // Расходы за месяц
 console.log('Срок достижения цели: ', appData.getTargetMonth()); //Срок достижения цели
 console.log('Статус дохода: ', appData.getStatusIncome()); // Статус дохода 
 
