@@ -143,6 +143,8 @@ for (let key in appData) {
  return console.log(newArr.join(', '));
 })(appData.addExpenses);
 
+// console.log(appData.addExpenses.map(word =>
+//   word[0].toUpperCase() + word.substring(1)).join(', '));
 
 
 
