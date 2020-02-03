@@ -25,6 +25,10 @@ let appData = {
     moneyDeposit: 0,
     mission: 50000,
     period: 5,
+    budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0,
     asking: function() {   
 
       if (confirm('Если ли у Вас дополнительный источник заработка?')) {
@@ -63,10 +67,6 @@ let appData = {
             appData.expenses[expensesKey] = +keyValue;
           }
     },
-    budget: money,
-    budgetDay: 0,
-    budgetMonth: 0,
-    expensesMonth: 0,
     getExpensesMonth: function() {
       let sum = 0;
         for (let key in appData.expenses) {
@@ -77,7 +77,7 @@ let appData = {
 
     getBudget: function() {
       appData.budgetMonth = appData.budget - appData.expensesMonth;
-      appData.budgetDay = appData.budgetMonth / 30;
+      appData.budgetDay = Math.floor(appData.budgetMonth / 30);
     },
 
     getTargetMonth: function() {
