@@ -18,11 +18,8 @@ for (let i = 1; i <= books.length; i++) {
 body.style = 'background-image: url("../image/you-dont-know-js.jpg")';
 
 //  Исправить заголовок
-for (let i = 0; i < books.length; i++){
-  if ( books[i].querySelector('h2 a').textContent.indexOf('3') > 0) {
-    books[i].querySelector('h2 a').textContent = 'Книга 3. this и Прототипы Объектов';
-  }
-}
+books[4].querySelector('h2 a').textContent = 'Книга 3. this и Прототипы Объектов';
+
 // Убрать рекламу
 body.removeChild(adv);
 
