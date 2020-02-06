@@ -15,7 +15,7 @@ for (let i = 1; i <= books.length; i++) {
 }
 
 //  Сменить фон  
-body.style.backgroundImage = 'url("../image/you-dont-know-js.jpg")';
+body.style.backgroundImage = 'url("./image/you-dont-know-js.jpg")';
 
 //  Исправить заголовок
 books[4].querySelector('h2 a').textContent = 'Книга 3. this и Прототипы Объектов';
