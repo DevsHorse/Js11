@@ -1,7 +1,7 @@
 'use strict';
 
 const bookContainer = document.querySelector('.books');
-const books = document.querySelectorAll('.book');
+const books = bookContainer.querySelectorAll('.book');
 const adv = document.querySelector('.adv');
 const body = document.querySelector('body');
 
