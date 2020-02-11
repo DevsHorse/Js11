@@ -44,18 +44,18 @@ function isNumber(n) {
 
 const AppData = function () {
 
-  this.income         = {};
-  this.incomeMonth    = 0;
-  this.addIncome      = [];
-  this.expenses       = {};
-  this.addExpenses    = [];
-  this.deposit        = false;
+  this.income = {};
+  this.incomeMonth = 0;
+  this.addIncome = [];
+  this.expenses = {};
+  this.addExpenses = [];
+  this.deposit = false;
   this.percentDeposit = 0;
-  this.moneyDeposit   = 0;
-  this.budget         = 0;
-  this.budgetDay      = 0;
-  this.budgetMonth    = 0;
-  this.expensesMonth  = 0;
+  this.moneyDeposit = 0;
+  this.budget = 0;
+  this.budgetDay = 0;
+  this.budgetMonth = 0;
+  this.expensesMonth = 0;
 
 };
 
@@ -210,21 +210,25 @@ AppData.prototype.getStatusIncome = function () {
 //Ввод депозитовых данных 
 AppData.prototype.getInfoDeposit = function () {
   if (this.deposit) {
-    do {
-      this.percentDeposit = prompt('Какой годовой процент?', 10);
+      this.deposit = false;
+    } else {
+      this.deposit = true;
     }
-    while (!isNumber(this.percentDeposit));
-    do {
-      this.moneyDeposit = prompt('Какая сумма заложена?', 10000);
-    }
-    while (!isNumber(this.moneyDeposit));
-  }
+  // if (this.deposit) {
+  //   do {
+  //     this.percentDeposit = prompt('Какой годовой процент?', 10);
+  //   }
+  //   while (!isNumber(this.percentDeposit));
+  //   do {
+  //     this.moneyDeposit = prompt('Какая сумма заложена?', 10000);
+  //   }
+  //   while (!isNumber(this.moneyDeposit));
+  // }
 };
 //Валидатор
 AppData.prototype.setValidate = function () {
   let inputsName = document.querySelectorAll('input[placeholder="Наименование"]');
   let inputsSum = document.querySelectorAll('input[placeholder="Сумма"]');
-
   inputsName.forEach((input) => {
     input.addEventListener('input', () => {
       let reg = /^[а-яёА-ЯЁ]/;
@@ -307,14 +311,8 @@ AppData.prototype.eventListeners = function() {
   expensesPlus.addEventListener('click', _this.addExpensesBlock.bind(_this));
   incomePlus.addEventListener('click', _this.addIncomeBlock.bind(_this));
   periodSelect.addEventListener('input', () => periodAmount.textContent = periodSelect.value);
+  depositCheckbox.addEventListener('click', _this.getInfoDeposit.bind(_this));
 };
 
 const appData = new AppData();
 appData.eventListeners();
-console.log(appData);
-
-
-
-/* Слушатели событий  ----------------------------------------------------------------------------*/
-
-/* --------------------------------------------------------------------------------------------  */
