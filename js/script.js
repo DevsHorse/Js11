@@ -33,29 +33,49 @@ document.addEventListener('DOMContentLoaded', () => newObject.createElement());
 
 window.addEventListener('keydown', function(event) {
   let square = document.querySelector('.block');
-
-  if (event.keyCode === 40) {
-
-      let top = parseFloat(square.style.top);
-      square.style.top = `${top + 10}px`;
-
-  } else if (event.keyCode === 38) {
-
-      let top = parseFloat(square.style.top);
-      square.style.top = `${top - 10}px`;
-
-  } else if (event.keyCode === 37) {
-
-      let left = parseFloat(square.style.left);
-      square.style.left = `${left - 10}px`;
-
-  } else if (event.keyCode === 39) {
-
-      let left = parseFloat(square.style.left);
-      square.style.left = `${left + 10}px`;
-
-  } else {
-    return;
+/*
+   New code decision 
+*/
+  function move(key, possitive, top) {
+      if (event.keyCode === key) {
+        let value = top === 'top' ? parseFloat(square.style.top) : parseFloat(square.style.left);
+          if (top === 'top') {
+            square.style.top = possitive ? `${value + 10}px` : `${value - 10}px`;
+          } else {
+            square.style.left = possitive ? `${value + 10}px` : `${value - 10}px`;
+          }
+      }
   }
+move(40, true, 'top');
+move(38, false, 'top');
+move(37, false, '');
+move(39, true, '');
 
+/*
+  Old code decision for best understanding
+*/
+
+ // if (event.keyCode === 40) {
+
+  //     let top = parseFloat(square.style.top);
+  //     square.style.top = `${top + 10}px`;
+
+  // } else if (event.keyCode === 38) {
+
+  //     let top = parseFloat(square.style.top);
+  //     square.style.top = `${top - 10}px`;
+
+  // } else if (event.keyCode === 37) {
+
+  //     let left = parseFloat(square.style.left);
+  //     square.style.left = `${left - 10}px`;
+
+  // } else if (event.keyCode === 39) {
+
+  //     let left = parseFloat(square.style.left);
+  //     square.style.left = `${left + 10}px`;
+
+  // } else {
+  //   return;
+  // }
 });
