@@ -106,7 +106,17 @@ class AppData {
       expensesPlus.style.display = 'none';
     }
   }
-
+  //Метод добавления блоков в (Дополнительные доходы)
+  addIncomeBlock() {
+    const cloneIncomeItem = incomeItem[0].cloneNode(true);
+    cloneIncomeItem.querySelectorAll('input').forEach((item) => item.value = '');
+    incomeItem[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
+    incomeItem = document.querySelectorAll('.income-items');
+    this.setValidate();
+    if (incomeItem.length === 3) {
+      incomePlus.style.display = 'none';
+    }
+  }
   getExpInc() {
 
     const count = item => {
@@ -124,17 +134,6 @@ class AppData {
   
     for (let key in this.income) {
       this.incomeMonth += +this.income[key];
-    }
-  }
-  //Метод добавления блоков в (Дополнительные доходы)
-  addIncomeBlock() {
-    let cloneIncomeItem = incomeItem[0].cloneNode(true);
-    cloneIncomeItem.querySelectorAll('input').forEach((item) => item.value = '');
-    incomeItem[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
-    incomeItem = document.querySelectorAll('.income-items');
-    this.setValidate();
-    if (incomeItem.length === 3) {
-      incomePlus.style.display = 'none';
     }
   }
   //Метод записи из инпута (Возможные расходы) в массив addExpenses
