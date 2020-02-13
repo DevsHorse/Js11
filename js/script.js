@@ -292,16 +292,14 @@ class AppData {
     removeItems(expensesItems, expensesPlus);
   }
   
-  eventListeners() {
-    const _this = this;
-    
+  eventListeners() {  
     this.setValidate();
-    start.addEventListener('click', _this.start.bind(_this));
-    reset.addEventListener('click', _this.reset.bind(_this));
-    expensesPlus.addEventListener('click', _this.addExpensesBlock.bind(_this));
-    incomePlus.addEventListener('click', _this.addIncomeBlock.bind(_this));
+    start.addEventListener('click', () => this.start());
+    reset.addEventListener('click', () => this.reset());
+    expensesPlus.addEventListener('click', () => this.addExpensesBlock());
+    incomePlus.addEventListener('click', () => this.addIncomeBlock());
     periodSelect.addEventListener('input', () => periodAmount.textContent = periodSelect.value);
-    depositCheckbox.addEventListener('click', _this.getInfoDeposit.bind(_this));
+    depositCheckbox.addEventListener('click', () => this.getInfoDeposit());
   }
 }
 
