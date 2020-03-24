@@ -438,16 +438,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (getCookie('isLoad') === 'true') {
       inputs.forEach((item) => {
       let keyName = item.className.split(' ')[1];
-        if (localStorage.getItem(keyName) === getCookie(keyName)) {
-          console.log('равны');
-        } else {
+        if (localStorage.getItem(keyName) !== getCookie(keyName)) {
           appData.cookieLocal('off');
           appData.reset();
           return;
-        }
+        } 
       });
     }
   }
   getLocal();
   isCookieCorrect();
+  console.log(appData);
 });
